@@ -1,0 +1,34 @@
+#include<stdio.h>
+void swap(int *b,int *c)
+{
+    int t=*b;
+    *b=*c;
+    *c=t;
+}
+void selectionSort(int *a,int n)
+{
+    for(int i=0;i<n-1;i++)
+    {
+        int min=i;
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[min]>a[j])
+                min=j;
+        }
+        swap(&a[min],&a[i]);
+    }
+}
+int main()
+{
+    int arr[10];
+    for(int i=0;i<7;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    selectionSort(arr,7);
+    for(int i=0;i<7;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
